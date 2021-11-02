@@ -1,7 +1,8 @@
-version: "3"
+version: "3.6"
 services:
   mariadb:
     image: "mariadb"
+#    platform: linux/amd64
     container_name: app_mariadb
     ports:
       - "3306:3306"
@@ -12,6 +13,7 @@ services:
       - "3306"
 
   backend:
+#    platform: linux/amd64
     container_name: app_backend
     build:
       dockerfile: Dockerfile
