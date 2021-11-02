@@ -1,0 +1,21 @@
+version: "3"
+services:
+  mariadb:
+    image: "mariadb"
+    container_name: app_mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: toy
+    expose:
+      - "3306"
+
+  backend:
+    container_name: app_backend
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/app
+
